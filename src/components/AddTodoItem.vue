@@ -1,11 +1,11 @@
 <template>
-	<form @submit.prevent="onSubmit">
+	<form v-on:submit.prevent="onSubmit">
         <input type="text" v-model = "title">
         <button type="submit">Create new Task</button>
     </form>
 </template>
 
-<script>
+<script>    
     export default {
         data() {
             return {

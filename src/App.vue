@@ -8,6 +8,7 @@
     <TodoList
       v-bind:todoList = "todoList"
       v-on:todoItemRemove = "todoItemRemove"
+      v-on:todoItemSaveChanges = "todoItemSaveChanges"
     />
   </div>
 </template>
@@ -34,11 +35,14 @@
       AddTodoItem:AddTodoItem
     },
     methods: {
+      todoItemAdd(newTodoItem){
+        this.todoList.push(newTodoItem)
+      },
       todoItemRemove(todoItemId){        
         this.todoList = this.todoList.filter(todoItem => todoItem.id !== todoItemId)
       },
-      todoItemAdd(newTodoItem){
-        this.todoList.push(newTodoItem)
+      todoItemSaveChanges(editedTodoItem){
+        this.todoList[editedTodoItem.index].title = editedTodoItem.newTitle
       }
     }
   }

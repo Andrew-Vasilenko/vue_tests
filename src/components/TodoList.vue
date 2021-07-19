@@ -8,6 +8,7 @@
 
 				v-bind:index = "i"
 				v-on:todoItemRemove = "todoItemRemove"
+				v-on:todoItemSaveChanges = "todoItemSaveChanges"
 			/>
 		</ul>
 	</p>
@@ -27,6 +28,9 @@
 		methods: {
 			todoItemRemove(todoItemId) {
 				this.$emit('todoItemRemove', todoItemId)
+			},
+			todoItemSaveChanges(editedTodoItem){
+				this.$emit('todoItemSaveChanges', editedTodoItem)
 			}
 		}
 	}
