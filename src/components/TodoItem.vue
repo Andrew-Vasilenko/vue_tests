@@ -4,7 +4,7 @@
 			<input type="checkbox"
 				v-on:change = "todoItem.completed = !todoItem.completed"
 			>
-			<strong>{{todoItem.id}}</strong>
+			<strong>{{index + 1}}</strong>
 			{{ todoItem.title }}
 		</span>
 		<button class="remove"
@@ -15,7 +15,11 @@
 
 <script>
 export default {
-	props: ['todoItem']
+	// все параметры принимаемые данным компонентом
+	props: [
+		'todoItem',
+		'index'
+	]
 }
 </script>
 

@@ -1,7 +1,10 @@
 <template>
   <div id="app">
-    <h1>AAAAAAAAAAAAAAAAAAAAAAAAAAAA</h1>
+    <h1>Todo List</h1>
     <hr>
+    <AddTodoItem
+      v-on:todoItemAdd = "todoItemAdd"
+    />
     <TodoList
       v-bind:todoList = "todoList"
       v-on:todoItemRemove = "todoItemRemove"
@@ -12,6 +15,7 @@
 <script>
   // импорт компонентов
   import TodoList from '@/components/TodoList'
+  import AddTodoItem from '@/components/AddTodoItem.vue'
 
   export default {
     name: 'App',
@@ -26,12 +30,15 @@
     },
     // регистрация компонентов
     components: {
-      TodoList:TodoList
+      TodoList:TodoList,
+      AddTodoItem:AddTodoItem
     },
     methods: {
       todoItemRemove(todoItemId){        
         this.todoList = this.todoList.filter(todoItem => todoItem.id !== todoItemId)
-        console.log(this.todoList)
+      },
+      todoItemAdd(newTodoItem){
+        this.todoList.push(newTodoItem)
       }
     }
   }
