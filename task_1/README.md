@@ -1,4 +1,4 @@
-# 1st_prj
+# Task №1
 
 ## Project setup
 ```
